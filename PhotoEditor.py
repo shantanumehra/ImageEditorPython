@@ -196,7 +196,7 @@ class FilterFrame(Toplevel):
         self.black_white_button = Button(master=self, text="Black White",width=12)
         self.sepia_button = Button(master=self, text="Sepia",width=12)
         self.emboss_button = Button(master=self, text="Emboss",width=12)
-        self.gaussian_blur_button = Button(master=self, text="Gaussian Blur",width=12)
+        # self.gaussian_blur_button = Button(master=self, text="Gaussian Blur",width=12)
         self.median_blur_button = Button(master=self, text="Median Blur",width=12)
         self.cancel_button = Button(master=self, text="Cancel")
         self.apply_button = Button(master=self, text="Apply")
@@ -205,7 +205,7 @@ class FilterFrame(Toplevel):
         self.black_white_button.bind("<ButtonRelease>", self.black_white_released)
         self.sepia_button.bind("<ButtonRelease>", self.sepia_button_released)
         self.emboss_button.bind("<ButtonRelease>", self.emboss_button_released)
-        self.gaussian_blur_button.bind("<ButtonRelease>", self.gaussian_blur_button_released)
+        # self.gaussian_blur_button.bind("<ButtonRelease>", self.gaussian_blur_button_released)
         self.median_blur_button.bind("<ButtonRelease>", self.median_blur_button_released)
         self.apply_button.bind("<ButtonRelease>", self.apply_button_released)
         self.cancel_button.bind("<ButtonRelease>", self.cancel_button_released)
@@ -214,7 +214,7 @@ class FilterFrame(Toplevel):
         self.black_white_button.pack()
         self.sepia_button.pack()
         self.emboss_button.pack()
-        self.gaussian_blur_button.pack()
+        # self.gaussian_blur_button.pack()
         self.median_blur_button.pack()
         self.cancel_button.pack(side=RIGHT)
         self.apply_button.pack(side=LEFT)
@@ -235,12 +235,12 @@ class FilterFrame(Toplevel):
         self.emboss()
         self.show_image()
 
-    def gaussian_blur_button_released(self, event):
-        self.gaussian_blur()
-        self.show_image()
+    # def gaussian_blur_button_released(self, event):
+    #     self.gaussian_blur()
+    #     self.show_image()
 
     def median_blur_button_released(self, event):
-        self.gaussian_blur()
+        self.median_blur()
         self.show_image()
 
     def apply_button_released(self, event):
@@ -276,14 +276,15 @@ class FilterFrame(Toplevel):
 
         self.filtered_image = cv2.filter2D(self.OriginalImage, -1, kernel)
 
-    def gaussian_blur(self):
-        self.filtered_image = cv2.GaussianBlur(self.OriginalImage, (41, 41), 0)
+    # def gaussian_blur(self):
+    #     self.filtered_image = cv2.GaussianBlur(self.OriginalImage, (41, 41), 0)
 
     def median_blur(self):
         self.filtered_image = cv2.medianBlur(self.OriginalImage, 41)
 
     def close(self):
-        self.destroy()
+        # self.destroy()
+        SystemExit
 
 
 
